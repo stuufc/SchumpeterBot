@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 load_dotenv()
 
 # GRAB THE API TOKEN FROM THE .ENV FILE.
-DISCORD_TOKEN = "MTE2OTk4NDMxOTQ2OTY3MDQ1MA.G9-7Fy.ATlCojZ8zqTX4FeFzvQUvHAogR0HnpsImwo5lc"
+discord_token = os.environ.get('DISCORD_TOKEN')
 
 # EVENT LISTENER FOR WHEN THE BOT HAS SWITCHED FROM OFFLINE TO ONLINE.
 @bot.event
@@ -42,4 +42,4 @@ async def on_message(message):
         await message.channel.send("hey dirtbag")
 
 # EXECUTES THE BOT WITH THE SPECIFIED TOKEN. TOKEN HAS BEEN REMOVED AND USED JUST AS AN EXAMPLE.
-bot.run(DISCORD_TOKEN)
+bot.run(discord_token)
