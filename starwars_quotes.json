@@ -1,0 +1,302 @@
+[
+    {
+        "Quote_Nr": 1,
+        "quote": "May the Force be with you.",
+        "said_by": "Various Characters",
+        "movie": "Multiple Star Wars Films"
+    },
+    {
+        "Quote_Nr": 2,
+        "quote": "I am your father.",
+        "said_by": "Darth Vader (to Luke Skywalker)",
+        "movie": "Star Wars: Episode V - The Empire Strikes Back"
+    },
+    {
+        "Quote_Nr": 3,
+        "quote": "Help me, Obi-Wan Kenobi. You're my only hope.",
+        "said_by": "Princess Leia",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 4,
+        "quote": "Do or do not. There is no try.",
+        "said_by": "Yoda",
+        "movie": "Star Wars: Episode V - The Empire Strikes Back"
+    },
+    {
+        "Quote_Nr": 5,
+        "quote": "I find your lack of faith disturbing.",
+        "said_by": "Darth Vader",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 6,
+        "quote": "The Force will be with you, always.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 7,
+        "quote": "Fear is the path to the dark side. Fear leads to anger, anger leads to hate, hate leads to suffering.",
+        "said_by": "Yoda",
+        "movie": "Star Wars: Episode I - The Phantom Menace"
+    },
+    {
+        "Quote_Nr": 8,
+        "quote": "It's a trap!",
+        "said_by": "Admiral Ackbar",
+        "movie": "Star Wars: Episode VI - Return of the Jedi"
+    },
+    {
+        "Quote_Nr": 9,
+        "quote": "In my experience, there's no such thing as luck.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 10,
+        "quote": "I've got a bad feeling about this.",
+        "said_by": "Various Characters",
+        "movie": "Multiple Star Wars Films"
+    },
+    {
+        "Quote_Nr": 11,
+        "quote": "Remember... the Force will be with you, always.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 12,
+        "quote": "No! Try not. Do, or do not. There is no try.",
+        "said_by": "Yoda",
+        "movie": "Star Wars: Episode V - The Empire Strikes Back"
+    },
+    {
+        "Quote_Nr": 13,
+        "quote": "Who's the more foolish, the fool or the fool who follows him?",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 14,
+        "quote": "Your focus determines your reality.",
+        "said_by": "Qui-Gon Jinn",
+        "movie": "Star Wars: Episode I - The Phantom Menace"
+    },
+    {
+        "Quote_Nr": 15,
+        "quote": "So this is how liberty dies... with thunderous applause.",
+        "said_by": "Padme Amidala",
+        "movie": "Star Wars: Episode III - Revenge of the Sith"
+    },
+    {
+        "Quote_Nr": 16,
+        "quote": "The dark side of the Force is a pathway to many abilities some consider to be unnatural.",
+        "said_by": "Chancellor Palpatine",
+        "movie": "Star Wars: Episode III - Revenge of the Sith"
+    },
+    {
+        "Quote_Nr": 17,
+        "quote": "I'll never turn to the dark side. You've failed, your highness. I am a Jedi, like my father before me.",
+        "said_by": "Luke Skywalker",
+        "movie": "Star Wars: Episode VI - Return of the Jedi"
+    },
+    {
+        "Quote_Nr": 18,
+        "quote": "You were the chosen one! It was said that you would destroy the Sith, not join them!",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "Star Wars: Episode III - Revenge of the Sith"
+    },
+    {
+        "Quote_Nr": 19,
+        "quote": "In my experience, there is no such thing as luck.",
+        "said_by": "Han Solo",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 20,
+        "quote": "It's treason, then.",
+        "said_by": "Darth Vader",
+        "movie": "Star Wars: Episode III - Revenge of the Sith"
+    },
+    {
+        "Quote_Nr": 21,
+        "quote": "The Force is strong with this one.",
+        "said_by": "Darth Vader",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 22,
+        "quote": "The ability to speak does not make you intelligent.",
+        "said_by": "Qui-Gon Jinn",
+        "movie": "Star Wars: Episode I - The Phantom Menace"
+    },
+    {
+        "Quote_Nr": 23,
+        "quote": "I'm just a simple man trying to make my way in the universe.",
+        "said_by": "Jango Fett",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    },
+    {
+        "Quote_Nr": 24,
+        "quote": "You can't stop the change, any more than you can stop the suns from setting.",
+        "said_by": "Shmi Skywalker",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    },
+    {
+        "Quote_Nr": 25,
+        "quote": "I have a bad feeling about this.",
+        "said_by": "Anakin Skywalker",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    },
+    {
+        "Quote_Nr": 26,
+        "quote": "There's always a bigger fish.",
+        "said_by": "Qui-Gon Jinn",
+        "movie": "Star Wars: Episode I - The Phantom Menace"
+    },
+    {
+        "Quote_Nr": 27,
+        "quote": "It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.",
+        "said_by": "Opening Crawl",
+        "movie": "Star Wars: Episode IV - A New Hope"
+    },
+    {
+        "Quote_Nr": 28,
+        "quote": "A Jedi's strength flows from the Force. But beware the dark side. Anger, fear, aggression; the dark side of the Force are they.",
+        "said_by": "Yoda",
+        "movie": "Star Wars: Episode V - The Empire Strikes Back"
+    },
+    {
+        "Quote_Nr": 29,
+        "quote": "I sense great fear in you, Skywalker. You have hate. You have anger. But you don't use them.",
+        "said_by": "Count Dooku",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    },
+    {
+        "Quote_Nr": 30,
+        "quote": "I've been waiting for this day for a long time.",
+        "said_by": "Darth Sidious",
+        "movie": "Star Wars: Episode III - Revenge of the Sith"
+    },
+    {
+        "Quote_Nr": 31,
+        "quote": "I love you.",
+        "said_by": "Leia Organa",
+        "movie": "Star Wars: Episode V - The Empire Strikes Back"
+    },
+    {
+        "Quote_Nr": 32,
+        "quote": "This is a new day, a new beginning.",
+        "said_by": "Ahsoka Tano",
+        "movie": "Star Wars: The Clone Wars (TV Series)"
+    },
+    {
+        "Quote_Nr": 33,
+        "quote": "The Force will be with you, always.",
+        "said_by": "Luke Skywalker",
+        "movie": "Star Wars: Episode VIII - The Last Jedi"
+    },
+    {
+        "Quote_Nr": 34,
+        "quote": "I am one with the Force, and the Force is with me.",
+        "said_by": "Chirrut Imwe",
+        "movie": "Rogue One: A Star Wars Story"
+    },
+    {
+        "Quote_Nr": 35,
+        "quote": "I find that answer vague and unconvincing.",
+        "said_by": "K-2SO",
+        "movie": "Rogue One: A Star Wars Story"
+    },
+    {
+        "Quote_Nr": 36,
+        "quote": "That's not how the Force works!",
+        "said_by": "Han Solo",
+        "movie": "Star Wars: Episode VII - The Force Awakens"
+    },
+    {
+        "Quote_Nr": 37,
+        "quote": "Let the past die. Kill it, if you have to.",
+        "said_by": "Kylo Ren",
+        "movie": "Star Wars: Episode VIII - The Last Jedi"
+    },
+    {
+        "Quote_Nr": 38,
+        "quote": "Strike me down in anger and I'll always be with you. Just like your father.",
+        "said_by": "Luke Skywalker",
+        "movie": "Star Wars: Episode VIII - The Last Jedi"
+    },
+    {
+        "Quote_Nr": 39,
+        "quote": "The belonging you seek is not behind you; it is ahead.",
+        "said_by": "Maz Kanata",
+        "movie": "Star Wars: Episode VII - The Force Awakens"
+    },
+    {
+        "Quote_Nr": 40,
+        "quote": "We are what they grow beyond. That is the true burden of all masters.",
+        "said_by": "Master Yoda",
+        "movie": "Star Wars: Episode VIII - The Last Jedi"
+    },
+    {
+        "Quote_Nr": 41,
+        "quote": "The Force brought us together.",
+        "said_by": "Rey",
+        "movie": "Star Wars: Episode IX - The Rise of Skywalker"
+    },
+    {
+        "Quote_Nr": 42,
+        "quote": "I'm Rey Skywalker.",
+        "said_by": "Rey",
+        "movie": "Star Wars: Episode IX - The Rise of Skywalker"
+    },
+    {
+        "Quote_Nr": 43,
+        "quote": "The Force will be with you, always.",
+        "said_by": "Leia Organa",
+        "movie": "Star Wars: Episode IX - The Rise of Skywalker"
+    },
+    {
+        "Quote_Nr": 44,
+        "quote": "It's all true. The Force, the Jedi. All of it.",
+        "said_by": "Han Solo",
+        "movie": "Star Wars: Episode VII - The Force Awakens"
+    },
+    {
+        "Quote_Nr": 45,
+        "quote": "The Force is not a power you have. It's not about lifting rocks. It's the energy between all things, the tension, the balance that binds the universe together.",
+        "said_by": "Luke Skywalker",
+        "movie": "Star Wars: Episode VIII - The Last Jedi"
+    },
+    {
+        "Quote_Nr": 46,
+        "quote": "Every word of what you just said was wrong.",
+        "said_by": "Luke Skywalker",
+        "movie": "Star Wars: Episode VIII - The Last Jedi"
+    },
+    {
+        "Quote_Nr": 47,
+        "quote": "Never underestimate a droid.",
+        "said_by": "Anakin Skywalker",
+        "movie": "Star Wars: The Clone Wars (TV Series)"
+    },
+    {
+        "Quote_Nr": 48,
+        "quote": "I'm just a simple man trying to make my way in the universe.",
+        "said_by": "Jango Fett",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    },
+    {
+        "Quote_Nr": 49,
+        "quote": "You can't stop the change, any more than you can stop the suns from setting.",
+        "said_by": "Shmi Skywalker",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    },
+    {
+        "Quote_Nr": 50,
+        "quote": "I have a bad feeling about this.",
+        "said_by": "Anakin Skywalker",
+        "movie": "Star Wars: Episode II - Attack of the Clones"
+    }
+]

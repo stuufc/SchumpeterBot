@@ -1,5 +1,36 @@
 import json
 import requests
+import tkinter as tk
+
+def BuildGUI():
+    root = tk.Tk()
+    root.title('Star Wars Quote Game')
+    
+    label_Own_Sentence = tk.Label(root, text="Translate your sentence into Yoda Language:")
+    label_Own_Sentence.pack(pady=10)
+    
+    entry_own_quote = tk.Entry(root, width=50)
+    entry_own_quote.pack(pady=10)
+    
+    label_Answer_Own_Quote = tk.Label(root, text='')
+    label_Answer_Own_Quote.pack(pady=10)
+    
+    button_Translate_Own_Quote = tk.Button(root, text="Translate", command=lambda: ShowYodaQuote(entry_own_quote.get(), label_Answer_Own_Quote))
+    button_Translate_Own_Quote.pack(pady=10)
+    
+    label_Starwars_Game = tk.Label(root, text='Test your Star Wars knowledge and register for the Stars Wars Game. Log in if you are already registered.')
+    label_Starwars_Game.pack(pady=10)
+    
+    frame_buttons = tk.Frame(root)
+    frame_buttons.pack(pady=10)
+    
+    button_Login = tk.Button(frame_buttons, text='Log In')
+    button_Login.pack(side=tk.LEFT, padx=5)
+    
+    button_Register = tk.Button(frame_buttons, text='Register')
+    button_Register.pack(side=tk.LEFT, padx=5)
+    
+    root.mainloop()
 
 #Function "LoginPlayer": This function Logs in the User for the Star Wars Game
 def LoginPlayer():
@@ -76,6 +107,13 @@ def GetYodaQuote(SentenceToTranslate):
     else:
         print("API Error")
 
-CreatePlayer()
-#LoginPlayer()
-#print(GetYodaQuote("This is a Test Sentence to call the API"))
+#Function to show the Yoda Quote on the GUI
+def ShowYodaQuote(SentenceToTranslate, label_Answer_Own_Quote):
+    if SentenceToTranslate == '':
+        label_Answer_Own_Quote.config(text='Please enter a complete sentence for the translation!')
+    else:
+        translation = GetYodaQuote(SentenceToTranslate)
+        label_Answer_Own_Quote.config(text=f'Translation: {translation}')
+
+#Call the GUI
+BuildGUI()
