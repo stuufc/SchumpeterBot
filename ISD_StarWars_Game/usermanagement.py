@@ -59,3 +59,10 @@ def UpdateUserWithNewPoints(id, username, newamountofpoints):
 
     with open("user_database.json", 'w') as file:
         json.dump(data, file, indent=2)
+        
+#Function "ShowStatisticsForUser" returns the actual amount of points for the user
+def ShowStatisticsForUser(username):
+    if int(FindUser(username)[2]) > 0:
+        return "Player " + username + "has " + (FindUser(username)[2]) + " points at the moment."
+    else:
+        return "Player " + username + "has 0 points at the moment."
