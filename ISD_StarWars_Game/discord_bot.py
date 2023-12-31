@@ -1,4 +1,5 @@
 import discord
+import apimanagement
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -40,6 +41,14 @@ async def on_message(message):
     if message.content == "hello":
         # SENDS BACK A MESSAGE TO THE CHANNEL.
         await message.channel.send("hey dirtbag")
+    #with !translate the bot receives a message, and translates it via the API using the GetYodaQuote function from the apimanagement.py file
+    if message.content.startswith("!translate "):
+        user_input = message.content[11:]  #remove "!translate " from the message
+
+        yoda_quote = apimanagement.GetYodaQuote(user_input)
+
+        #send the yoda quote as a response
+        await message.channel.send(f"Yoda says: {yoda_quote}")
 
 # EXECUTES THE BOT WITH THE SPECIFIED TOKEN. TOKEN HAS BEEN REMOVED AND USED JUST AS AN EXAMPLE.
 bot.run(discord_token)
