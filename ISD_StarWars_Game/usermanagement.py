@@ -49,17 +49,24 @@ def CreateUserForGame(username, amountofpoints):
 #Function "UpdateUserWithNewPoints" adds the new amount of Points to the user in the Database
 def UpdateUserWithNewPoints(id, username, newamountofpoints):
     newrecord = {"username": username, "points": newamountofpoints}
-    with open("user_database.json", 'r') as file:
+    with open("../user_database.json", 'r') as file:
         data = json.load(file)
 
+    updated = False
     for datarecord in data:
-        if datarecord["ID"] == id:
-            datarecord.update(newrecord)
-            break
+        if "id" in datarecord and datarecord["id"] == id:
+            if datarecord["username"] == username:
+                datarecord["points"] += newamountofpoints  # Increment the points
+                updated = True
+                break
+    if updated:
+        with open("../user_database.json", "w") as file:
+            json.dump(data, file, indent=2)
+        return True
+    else:
+        print(f"No record found with ID: {id}")
+        return False
 
-    with open("user_database.json", 'w') as file:
-        json.dump(data, file, indent=2)
-        
 #Function "ShowStatisticsForUser" returns the actual amount of points for the user
 def ShowStatisticsForUser(username):
     if int(FindUser(username)[2]) > 0:

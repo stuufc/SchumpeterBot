@@ -10,19 +10,19 @@ solution_showed = False
 def GetRandomStarwarsQuote():
     global solution_showed
     solution_showed = False
-    with open("starwars_quotes.json", "r") as file:
+    with open("../starwars_quotes.json", "r") as file:
         data = json.load(file)
         
     random_record = random.choice(data)
     SetGlobalQuote(random_record, False)
     translated_random_quote = GetYodaQuote(random_record["quote"])
-    return(translated_random_quote)
+    return random_record, translated_random_quote
 
 #Function "SetGlobalQuote" defines the random quote which was loaded in the function GetRandomStarwarsQuote or resets the answer. It is neccessary to check the answer.
 def SetGlobalQuote(random_record, is_reset):
     global global_quote
     if is_reset:
-        global_quote = ''
+        global_quote = {}
     else:
         global_quote = random_record
 
@@ -36,24 +36,36 @@ def SetHint(is_Reset):
 
 #Function "CheckAnswerForSaidBy" Compares the Globally Said By Variable with the User Answer
 def CheckAnswerForSaidBy(useranswer, username):
-    if global_quote == {}:
-        return("Error: No Quote to proof Error. The Yoda Sentence was not created.")
-    
-    if solution_showed == True:
-        return("Error: The solution has been showed for this translation. Please try another one.")
-    
-    if global_quote["said_by"] == useranswer:
+    global global_quote, hint_claimed, solution_showed
+
+    #check if there is a quote to compare with
+    if not isinstance(global_quote, dict) or not global_quote:
+        return "Error: No Quote to proof Error. The Yoda Sentence was not created."
+
+    #check if the solution has already been shown
+    if solution_showed:
+        return "Error: The solution has been showed for this translation. Please try another one."
+
+    #compare the user's guess with the actual quote
+    if 'said_by' in global_quote and global_quote['said_by'].lower() == useranswer.lower():
         if hint_claimed:
-            AddPointsForUser(username,0.5)
+            AddPointsForUser(username, 0.5)
         else:
-            AddPointsForUser(username,1)
-        user_feedback ="Congratulations. The Answer was right. They points will be added to your user."
+            AddPointsForUser(username, 1)
+
+        #set the flag indicating the solution has been shown
+        solution_showed = True
+
+        #reset the global quote and hint flag for a new game
+        SetGlobalQuote({}, True)
+        SetHint(True)
+
+        return "Congratulations. The answer was right. The points will be added to your user."
+
     else:
-        user_feedback = "Unfortunately, the answer was wrong. Good luck next time."
-    
-    SetGlobalQuote({},True)
-    SetHint(True)
-    return(user_feedback)
+        #response for an incorrect guess, do not reset the global quote
+        return "Unfortunately, the answer was wrong. You may have another guess."
+
     
 #Function "ClaimeHint" Gets the Movie from the Quote and provides it to the user    
 def ClaimHint():
