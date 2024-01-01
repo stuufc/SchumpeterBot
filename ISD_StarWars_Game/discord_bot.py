@@ -1,6 +1,7 @@
 import discord
 import apimanagement
 import guessquotemgt
+import usermanagement
 import os
 import random
 from dotenv import load_dotenv
@@ -43,6 +44,8 @@ async def on_message(message):
     if message.content == "hello":
         # SENDS BACK A MESSAGE TO THE CHANNEL.
         await message.channel.send("hey dirtbag")
+    if message.content == "game":
+        await message.channel.send("Hey there! Looks like you want some fun. Use the `!guide` command and start playing. Good luck!")
     #with !translate the bot receives a message, and translates it via the API using the GetYodaQuote function from the apimanagement.py file
     if message.content.startswith("!translate "):
         user_input = message.content[11:]  #remove "!translate " from the message
@@ -95,7 +98,9 @@ async def start_game_mode(ctx):
         'quote': original_quote,
         'is_active': True,
         'hint_used': False,
-        'awaiting_guess': True
+        'awaiting_guess': True,
+        'active_players': game_state[channel_id]['active_players'],
+        'current_turn_index': 0
     })
 
     if translated_quote:
@@ -136,6 +141,13 @@ async def guess_quote(ctx, *, guess=None):
             await ctx.send(
                 "The answer was wrong. Try again or type `!restart` to start a new game with the same players.\n"
                 "To reset the game with new players, type `!reset`.")
+
+            #update the turn to the next player
+            game_state[channel_id]['current_turn_index'] = (game_state[channel_id]['current_turn_index'] + 1) % len(
+                game_state[channel_id]['active_players'])
+            next_player = game_state[channel_id]['active_players'][game_state[channel_id]['current_turn_index']]
+            await ctx.send(f"It's now {next_player}'s turn to guess.")
+
     except Exception as e:
         print(f"Error in CheckAnswerForSaidBy: {e}")
         await ctx.send("An error occurred while processing your guess. Try again!")
@@ -144,15 +156,18 @@ async def guess_quote(ctx, *, guess=None):
 async def restart_game(ctx):
     channel_id = ctx.channel.id
     if channel_id in game_state and game_state[channel_id]['is_active']:
-        # Start a new game with the same players
-        quote = guessquotemgt.GetRandomStarwarsQuote()
+        #start a new game with the same players
+        original_quote, translated_quote = guessquotemgt.GetRandomStarwarsQuote()
+        guessquotemgt.SetGlobalQuote(original_quote, False) #update the global quote
+
+        #update game state for new game
         game_state[channel_id].update({
-            'quote': quote,
+            'quote': original_quote,
             'hint_used': False,
             'awaiting_guess': True
         })
         await ctx.send(f"Game restarted with the same players.\n\n"
-                       f"New Star Wars Quote: {quote}\n\n"
+                       f"New Star Wars Quote: {translated_quote if translated_quote else 'No quote found'}\n\n"
                        f"Guess who said this quote by typing `!guess [your guess]`.")
     else:
         await ctx.send("There's no active game to restart. Start with `!mode1`.")
@@ -160,12 +175,19 @@ async def restart_game(ctx):
 @bot.command(name='reset')
 async def reset_game(ctx):
     channel_id = ctx.channel.id
-    if channel_id in game_state and not game_state[channel_id]['awaiting_guess']:
+    if channel_id in game_state and game_state[channel_id]['is_active']:
+        #reset points for all active players
+        for player_name in game_state[channel_id]['active_players']:
+            usermanagement.ResetPointsForPlayer(player_name)
+
+        #reset the game state
         game_state[channel_id]['active_players'] = []
         game_state[channel_id]['is_active'] = False
+        game_state[channel_id]['awaiting_guess'] = False
         await ctx.send("The game has been reset. Players can join the next game with `!enter`.")
     else:
-        await ctx.send("There's no game to reset or a guess is being awaited.")
+        await ctx.send("There's no active game to reset.")
+
 
 @bot.command(name='continue')
 async def continue_game(ctx):
@@ -176,6 +198,26 @@ async def continue_game(ctx):
     else:
         await ctx.send("There's no game to continue or a guess is being awaited.")
 
+@bot.command(name='players')
+async def show_players(ctx):
+    channel_id = ctx.channel.id
+    if channel_id not in game_state:
+        await ctx.send("No game is currently active in this channel.")
+        return
+
+    active_players = game_state[channel_id].get('active_players', [])
+    if not active_players:
+        await ctx.send("No players have entered the game.")
+        return
+
+    player_info = "Active players and their points:\n"
+    for player_name in active_players:
+        player_data = usermanagement.FindUser(player_name)
+        points = player_data["points"] if player_data else 0
+        player_info += f"{player_name}: {points} points\n"
+
+    await ctx.send(player_info)
+
 @bot.command(name='hint')
 async def give_hint(ctx):
     if ctx.channel.id in game_state and not game_state[ctx.channel.id]['hint_used']:
@@ -185,6 +227,29 @@ async def give_hint(ctx):
         game_state[ctx.channel.id]['hint_used'] = True
     else:
         await ctx.send("Hint already used or no active game.")
+
+@bot.command(name='guide')
+async def help_command(ctx):
+    help_text = (
+        "**Bot Commands:**\n"
+        "`!enter` - Enter the current game. Must be used before making guesses.\n"
+        "`!mode1` - Start a new game round with a Star Wars quote.\n"
+        "`!guess` - Guess who said the Star Wars quote.\n"
+        "`!hint` - Get a hint for the current quote. Can only be used once per round.\n"
+        "`!restart` - Restart the game with the same players and a new quote.\n"
+        "`!continue` - Continue to a new round with the same players.\n"
+        "`!reset` - Reset the game. This clears all players and their points.\n"
+        "`!players` - Show a list of all active players and their points.\n\n"
+        "**Game Rules:**\n"
+        "1. Players must use `!enter` to join the game.\n"
+        "2. The bot presents a Star Wars quote in Yoda-style language.\n"
+        "3. Players take turns to guess who originally said the quote using `!guess`.\n"
+        "4. Points are awarded for correct guesses. Use of hints reduces the points.\n"
+        "5. `!restart` or `!continue` for new rounds; `!reset` clears the game.\n"
+        "6. The game is turn-based, so wait for your turn to guess."
+    )
+
+    await ctx.send(help_text)
 
 # EXECUTES THE BOT WITH THE SPECIFIED TOKEN. TOKEN HAS BEEN REMOVED AND USED JUST AS AN EXAMPLE.
 bot.run(discord_token)

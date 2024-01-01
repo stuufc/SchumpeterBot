@@ -2,10 +2,10 @@ import json
 
 #Function "AddPointsForUser" handles the Usermanagement and is called by the games
 def AddPointsForUser(username, amountofpoints):
-    if FindUser(username):
-        newamountofpoints = int(FindUser(username)[2]) + amountofpoints
-        id_to_update = FindUser(username)[0]
-        UpdateUserWithNewPoints(id_to_update, username, newamountofpoints)
+    user = FindUser(username)
+    if user:
+        newamountofpoints = user["points"] + amountofpoints
+        UpdateUserWithNewPoints(user["id"], newamountofpoints)
     else:
         CreateUserForGame(username, amountofpoints)
         
@@ -14,12 +14,12 @@ def AddPointsForUser(username, amountofpoints):
 def FindUser(username_to_proof):
     try:
         #Read the actual User Database
-        with open("user_database.json", "r") as file:
+        with open("../user_database.json", "r") as file:
             data = json.load(file)
         #Iterate through the Database and look for an existing user
-        for username in data:
-            if username["username"] == username_to_proof:
-                return username["id"], username["username"], username["points"]
+        for user in data:
+            if user["username"] == username_to_proof:
+                return user
     except FileNotFoundError:
         pass
     return False 
@@ -28,7 +28,7 @@ def FindUser(username_to_proof):
 def CreateUserForGame(username, amountofpoints):
     # Check if a database exists and load the database file. If not, an empty dataset is created.
     try:
-        with open("user_database.json", "r") as file:
+        with open("../user_database.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:
         data = []
@@ -43,22 +43,22 @@ def CreateUserForGame(username, amountofpoints):
     data.append(player_data)
     
     # Save the updated data back to the database file
-    with open("user_database.json", "w") as file:
+    with open("../user_database.json", "w") as file:
         json.dump(data, file, indent=2)
 
 #Function "UpdateUserWithNewPoints" adds the new amount of Points to the user in the Database
-def UpdateUserWithNewPoints(id, username, newamountofpoints):
-    newrecord = {"username": username, "points": newamountofpoints}
+def UpdateUserWithNewPoints(id, newamountofpoints):
+    #newrecord = {"username": username, "points": newamountofpoints}
     with open("../user_database.json", 'r') as file:
         data = json.load(file)
 
     updated = False
     for datarecord in data:
-        if "id" in datarecord and datarecord["id"] == id:
-            if datarecord["username"] == username:
-                datarecord["points"] += newamountofpoints  # Increment the points
-                updated = True
-                break
+        if datarecord.get("id") == id:
+            datarecord["points"] = newamountofpoints
+            updated = True
+            break
+
     if updated:
         with open("../user_database.json", "w") as file:
             json.dump(data, file, indent=2)
@@ -73,3 +73,10 @@ def ShowStatisticsForUser(username):
         return "Player " + username + "has " + (FindUser(username)[2]) + " points at the moment."
     else:
         return "Player " + username + "has 0 points at the moment."
+
+#function to reset points for players when the !reset command is used
+def ResetPointsForPlayer(username):
+    player_data = FindUser(username)
+    if player_data:
+        UpdateUserWithNewPoints(player_data["id"], 0)  #reset points to 0
+
