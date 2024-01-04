@@ -80,7 +80,18 @@ async def start_game_mode(ctx):
     global solution_showed, hint_claimed
 
     channel_id = ctx.channel.id  #define channel_id here
-    if channel_id not in game_state or not game_state[channel_id]['active_players']:
+
+    #checks if channel_id is already a key in the game_state dict and therefore checks if game is initialized in this channel
+    if channel_id not in game_state:
+        game_state[channel_id] = {'is_active': False, 'active_players': []}
+
+    #checks if there is already an active game in this channel
+    if game_state[channel_id].get('is_active'):
+        await ctx.send(
+            "A game is already in progress. Use `!restart` to start a new game with the same players or `!reset` to reset the game.")
+        return
+    #checks if players have entered the game already, else shows hint for them to !enter
+    if not game_state[channel_id]['active_players']:
         await ctx.send("No players have entered the game. Use `!enter` to join.")
         return
 
@@ -103,8 +114,12 @@ async def start_game_mode(ctx):
         'current_turn_index': 0
     })
 
+    #adding a message in the first round of the game to announce which player starts the game
+    starting_player = game_state[channel_id]['active_players'][0]
+    await ctx.send(f"The game is starting. **{starting_player}**, it's your turn to guess!")
+
     if translated_quote:
-        await ctx.send(f"Star Wars Quote: {translated_quote}\n\n"
+        await ctx.send(f"**Star Wars Quote:** {translated_quote}\n\n"
                        f"Try to guess who said this quote by typing `!guess [your guess]`.\n"
                        f"If you're stuck, you can ask for a hint using `!hint`.")
     else:
@@ -147,6 +162,8 @@ async def guess_quote(ctx, *, guess=None):
                 game_state[channel_id]['active_players'])
             next_player = game_state[channel_id]['active_players'][game_state[channel_id]['current_turn_index']]
             await ctx.send(f"It's now {next_player}'s turn to guess.")
+
+
 
     except Exception as e:
         print(f"Error in CheckAnswerForSaidBy: {e}")
@@ -220,6 +237,7 @@ async def show_players(ctx):
 
 @bot.command(name='hint')
 async def give_hint(ctx):
+    #set game state to hin_used. player will only get 0.5 points for a correct guess
     if ctx.channel.id in game_state and not game_state[ctx.channel.id]['hint_used']:
         hint = guessquotemgt.ClaimHint()
         await ctx.send(f"Hint: {hint}\n\n"
