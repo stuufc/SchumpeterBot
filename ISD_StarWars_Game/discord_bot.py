@@ -154,7 +154,7 @@ async def guess_quote(ctx, *, guess=None):
         await ctx.send(response)
         if "Congratulations" in response:
             #players are given the option to start another game with the same players or to reset it
-            await ctx.send("To start a new game with the same players, type `!continue`.\n"
+            await ctx.send("To start a new game with the same players, type `!restart`.\n"
                            "To reset the game with new players, type `!reset`.")
             game_state[channel_id]['awaiting_guess'] = False
         else:
@@ -168,8 +168,6 @@ async def guess_quote(ctx, *, guess=None):
                 game_state[channel_id]['active_players'])
             next_player = game_state[channel_id]['active_players'][game_state[channel_id]['current_turn_index']]
             await ctx.send(f"It's now {next_player}'s turn to guess.")
-
-
 
     except Exception as e:
         print(f"Error in CheckAnswerForSaidBy: {e}")
@@ -192,6 +190,10 @@ async def restart_game(ctx):
         await ctx.send(f"Game restarted with the same players.\n\n"
                        f"New Star Wars Quote: {translated_quote if translated_quote else 'No quote found'}\n\n"
                        f"Guess who said this quote by typing `!guess [your guess]`.")
+        #add message whose players turn it is after restarting the game
+        current_player = game_state[channel_id]['active_players'][game_state[channel_id]['current_turn_index']]
+        await ctx.send(f"It's now {current_player}'s turn to guess.")
+
     else:
         await ctx.send("There's no active game to restart. Start with `!mode1`.")
 
@@ -212,14 +214,14 @@ async def reset_game(ctx):
         await ctx.send("There's no active game to reset.")
 
 
-@bot.command(name='continue')
+"""@bot.command(name='continue')
 async def continue_game(ctx):
     channel_id = ctx.channel.id
     if channel_id in game_state and not game_state[channel_id]['awaiting_guess']:
         game_state[channel_id]['is_active'] = True
         await ctx.send("Continue with the same players. Start the next round with `!mode1`.")
     else:
-        await ctx.send("There's no game to continue or a guess is being awaited.")
+        await ctx.send("There's no game to continue or a guess is being awaited.")"""
 
 @bot.command(name='players')
 async def show_players(ctx):
@@ -261,7 +263,7 @@ async def help_command(ctx):
         "`!guess` - Guess who said the Star Wars quote.\n"
         "`!hint` - Get a hint for the current quote. Can only be used once per round.\n"
         "`!restart` - Restart the game with the same players and a new quote.\n"
-        "`!continue` - Continue to a new round with the same players.\n"
+        #"`!continue` - Continue to a new round with the same players.\n"
         "`!reset` - Reset the game. This clears all players and their points.\n"
         "`!players` - Show a list of all active players and their points.\n\n"
         "**Game Rules:**\n"
@@ -269,7 +271,7 @@ async def help_command(ctx):
         "2. The bot presents a Star Wars quote in Yoda-style language.\n"
         "3. Players take turns to guess who originally said the quote using `!guess`.\n"
         "4. Points are awarded for correct guesses. Use of hints reduces the points.\n"
-        "5. `!restart` or `!continue` for new rounds; `!reset` clears the game.\n"
+        "5. `!restart` to start a new new round; `!reset` clears the game.\n"
         "6. The game is turn-based, so wait for your turn to guess."
     )
 

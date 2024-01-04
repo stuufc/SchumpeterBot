@@ -80,4 +80,4 @@ def ShowSolution():
         solution_showed = True
         return global_quote["said_by"]
     else:
-        return "Error: No solution to show at the moment."       
+        return "Error: No solution to show at the moment."
