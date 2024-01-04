@@ -142,6 +142,12 @@ async def guess_quote(ctx, *, guess=None):
         await ctx.send("You need to enter the game first with `!enter`.")
         return
 
+    #check that only allows the player to guess who is active in the current turn
+    current_player = game_state[channel_id]['active_players'][game_state[channel_id]['current_turn_index']]
+    if ctx.author.name != current_player:
+        await ctx.send(f"It's not your turn. It's currently {current_player}'s turn to guess.")
+        return
+
     #process the guess
     try:
         response = guessquotemgt.CheckAnswerForSaidBy(guess, ctx.author.name)
