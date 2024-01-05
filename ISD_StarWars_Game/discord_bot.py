@@ -254,12 +254,22 @@ async def give_hint(ctx):
     else:
         await ctx.send("Hint already used or no active game.")
 
+#Command gets all the Actors from the Database and send it to the Discord
+@bot.command(name='actors')
+async def give_actors(ctx):
+    actor_info = "The game contains the following actors:\n"
+    all_actors_list = guessquotemgt.GetAllActors()
+    for actor in all_actors_list:
+        actor_info += f"ID: {actor[0]}, Name: {actor[1]}\n"
+    await ctx.send(actor_info)
+
 @bot.command(name='guide')
 async def help_command(ctx):
     help_text = (
         "**Bot Commands:**\n"
         "`!enter` - Enter the current game. Must be used before making guesses.\n"
         "`!mode1` - Start a new game round with a Star Wars quote.\n"
+        "`!actors` - Get the List of Actors with the IDs you can guess.\n"
         "`!guess` - Guess who said the Star Wars quote.\n"
         "`!hint` - Get a hint for the current quote. Can only be used once per round.\n"
         "`!restart` - Restart the game with the same players and a new quote.\n"

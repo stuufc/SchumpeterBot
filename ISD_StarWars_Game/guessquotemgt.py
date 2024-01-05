@@ -34,8 +34,16 @@ def SetHint(is_Reset):
     else:
         hint_claimed = True
 
+#Function "IsActorNumberInJson" checks if the Number from the User is in the Database File
+def IsActorNumberInJson(actor_number):
+    with open("../characters.json", "r") as file:
+        data = json.load(file)
+        
+    return any(entry["Nr."] == actor_number for entry in data)
+
 #Function "CheckAnswerForSaidBy" Compares the Globally Said By Variable with the User Answer
 def CheckAnswerForSaidBy(useranswer, username):
+
     global global_quote, hint_claimed, solution_showed
 
     #check if there is a quote to compare with
@@ -46,8 +54,19 @@ def CheckAnswerForSaidBy(useranswer, username):
     if solution_showed:
         return "Error: The solution has been showed for this translation. Please try another one."
 
+    #Get the Actor with the useranswer
+    if IsActorNumberInJson(useranswer):
+        with open("../characters.json", "r") as file:
+            data = json.load(file)
+        for entry in data:
+            if entry["Nr."] == useranswer:
+                useranswer_said_by = entry["Character_Name"]
+    else:
+        return "The number given is invalid or does not match any actor. Please check the list"
+        
     #compare the user's guess with the actual quote
-    if 'said_by' in global_quote and global_quote['said_by'].lower() == useranswer.lower():
+
+    if 'said_by' in global_quote and global_quote['said_by'] == useranswer_said_by:
         if hint_claimed:
             AddPointsForUser(username, 0.5)
         else:
@@ -81,3 +100,12 @@ def ShowSolution():
         return global_quote["said_by"]
     else:
         return "Error: No solution to show at the moment."
+    
+#Function "GetAllActors" Gets all Actors from the Database and provide it to the user
+def GetAllActors():
+    with open("../characters.json", "r") as file:
+        data = json.load(file)
+        
+    actor_list = [(entry['Nr.'], entry['Character_Name']) for entry in data]
+
+    return actor_list
