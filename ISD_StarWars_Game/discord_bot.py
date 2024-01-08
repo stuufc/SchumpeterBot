@@ -182,17 +182,21 @@ async def restart_game(ctx):
         original_quote, translated_quote = guessquotemgt.GetRandomStarwarsQuote()
         guessquotemgt.SetGlobalQuote(original_quote, False) #update the global quote
 
+        #randomize order of active players for new round
+        random.shuffle(game_state[channel_id]['active_players'])
+
         #update game state for new game
         game_state[channel_id].update({
             'quote': original_quote,
             'hint_used': False,
-            'awaiting_guess': True
+            'awaiting_guess': True,
+            'current_turn_index': 0
         })
         await ctx.send(f"Game restarted with the same players.\n\n"
                        f"New Star Wars Quote: {translated_quote if translated_quote else 'No quote found'}\n\n"
-                       f"Guess who said this quote by typing `!guess [your guess]`.")
+                       f"Try to guess the ID of the actor who said this quote by typing `!guess [ID]`.")
         #add message whose players turn it is after restarting the game
-        current_player = game_state[channel_id]['active_players'][game_state[channel_id]['current_turn_index']]
+        current_player = game_state[channel_id]['active_players'][0]
         await ctx.send(f"It's now {current_player}'s turn to guess.")
 
     else:
