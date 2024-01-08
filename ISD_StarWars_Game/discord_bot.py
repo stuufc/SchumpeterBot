@@ -185,7 +185,7 @@ async def restart_game(ctx):
         #start a new game with the same players
         original_quote, translated_quote = guessquotemgt.GetRandomStarwarsQuote()
         guessquotemgt.SetGlobalQuote(original_quote, False) #update the global quote
-
+        guessquotemgt.SetHint(True) #Reset the Hint
         #randomize order of active players for new round
         random.shuffle(game_state[channel_id]['active_players'])
 
