@@ -43,7 +43,7 @@ async def on_message(message):
     # CHECKS IF THE MESSAGE THAT WAS SENT IS EQUAL TO "hello".
     if message.content == "hello":
         # SENDS BACK A MESSAGE TO THE CHANNEL.
-        await message.channel.send("hey dirtbag")
+        await message.channel.send(f"Hey, {message.author.display_name}! Welcome to our Star Wars game. Type `!guide` to learn how to play. May the Force be with you!")
     if message.content == "game":
         await message.channel.send("Hey there! Looks like you want some fun. Use the `!guide` command and start playing. Good luck!")
     #with !translate the bot receives a message, and translates it via the API using the GetYodaQuote function from the apimanagement.py file
@@ -116,11 +116,12 @@ async def start_game_mode(ctx):
 
     #adding a message in the first round of the game to announce which player starts the game
     starting_player = game_state[channel_id]['active_players'][0]
-    await ctx.send(f"The game is starting. **{starting_player}**, it's your turn to guess!")
+    await ctx.send(f"The game is starting. **{starting_player}**, it's your turn to guess !")
 
     if translated_quote:
         await ctx.send(f"**Star Wars Quote:** {translated_quote}\n\n"
-                       f"Try to guess who said this quote by typing `!guess [your guess]`.\n"
+                       f"Try to guess the ID of the actor who said this quote by typing `!guess [ID]`.\n"
+                       f"For a list of actor IDs, use the `!actors` command. Example: `!guess 3`.\n\n"
                        f"If you're stuck, you can ask for a hint using `!hint`.")
     else:
         await ctx.send("Error: Unable to fetch a Star Wars quote.")
@@ -260,7 +261,7 @@ async def give_actors(ctx):
     actor_info = "The game contains the following actors:\n"
     all_actors_list = guessquotemgt.GetAllActors()
     for actor in all_actors_list:
-        actor_info += f"ID: {actor[0]}, Name: {actor[1]}\n"
+        actor_info += f"**ID:** {actor[0]}\t**Name:** {actor[1]}\n"
     await ctx.send(actor_info)
 
 @bot.command(name='guide')
@@ -282,7 +283,9 @@ async def help_command(ctx):
         "3. Players take turns to guess who originally said the quote using `!guess`.\n"
         "4. Points are awarded for correct guesses. Use of hints reduces the points.\n"
         "5. `!restart` to start a new new round; `!reset` clears the game.\n"
-        "6. The game is turn-based, so wait for your turn to guess."
+        "6. The game is turn-based, so wait for your turn to guess.\n\n"
+        "**Translate sentences:**\n"
+        "Use `!translate [your sentence]` to translate a sentence into Yoda-language. Careful, this only works in english."
     )
 
     await ctx.send(help_text)
