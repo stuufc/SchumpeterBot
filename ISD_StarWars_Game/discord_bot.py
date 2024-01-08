@@ -95,6 +95,10 @@ async def start_game_mode(ctx):
         await ctx.send("No players have entered the game. Use `!enter` to join.")
         return
 
+    #reset points for all active players when !mode1 is called
+    for player_name in game_state[channel_id]['active_players']:
+        usermanagement.ResetPointsForPlayer(player_name)
+
     #retrieve a new quote and set it as the global quote
     original_quote, translated_quote = guessquotemgt.GetRandomStarwarsQuote()
     guessquotemgt.SetGlobalQuote(original_quote, False)  #set the new quote
