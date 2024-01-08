@@ -45,7 +45,12 @@ def IsActorNumberInJson(actor_number):
 def CheckAnswerForSaidBy(useranswer, username):
 
     global global_quote, hint_claimed, solution_showed
-
+    
+    if useranswer.isdigit():
+        int_useranswer = int(useranswer)
+    else:
+        print("The Answer is not a number.")
+        
     #check if there is a quote to compare with
     if not isinstance(global_quote, dict) or not global_quote:
         return "Error: No Quote to proof Error. The Yoda Sentence was not created."
@@ -55,11 +60,11 @@ def CheckAnswerForSaidBy(useranswer, username):
         return "Error: The solution has been showed for this translation. Please try another one."
 
     #Get the Actor with the useranswer
-    if IsActorNumberInJson(useranswer):
+    if IsActorNumberInJson(int_useranswer):
         with open("../characters.json", "r") as file:
             data = json.load(file)
         for entry in data:
-            if entry["Nr."] == useranswer:
+            if entry["Nr."] == int_useranswer:
                 useranswer_said_by = entry["Character_Name"]
     else:
         return "The number given is invalid or does not match any actor. Please check the list"
