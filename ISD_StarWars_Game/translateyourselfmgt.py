@@ -10,7 +10,7 @@ solution_showed = False
 def ShowQuoteToTranslate():
     global solution_showed
     solution_showed = False
-    with open("starwars_quotes.json", "r") as file:
+    with open("../starwars_quotes.json", "r") as file:
         data = json.load(file)
     random_record = random.choice(data)
     translated_quote = GetYodaQuote(random_record["quote"])
