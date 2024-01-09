@@ -1,349 +1,236 @@
 [
-  {
-    "quote_nr": 1,
-    "quote": "I am your father.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 2,
-    "quote": "Do or do not, there is no try.",
-    "said_by": "Yoda",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 3,
-    "quote": "I love you.",
-    "said_by": "Leia Organa",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 4,
-    "quote": "I know.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 5,
-    "quote": "I find your lack of faith disturbing.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 6,
-    "quote": "There's always a bigger fish.",
-    "said_by": "Qui-Gon Jinn",
-    "movie": "Star Wars: Episode I - The Phantom Menace"
-  },
-  {
-    "quote_nr": 7,
-    "quote": "The dark side of the Force is a pathway to many abilities some consider to be unnatural.",
-    "said_by": "Chancellor Palpatine",
-    "movie": "Star Wars: Episode III - Revenge of the Sith"
-  },
-  {
-    "quote_nr": 8,
-    "quote": "You were the chosen one!",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode III - Revenge of the Sith"
-  },
-  {
-    "quote_nr": 9,
-    "quote": "It's a trap!",
-    "said_by": "Admiral Ackbar",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 10,
-    "quote": "I am altering the deal. Pray I don't alter it any further.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 11,
-    "quote": "That's no moon. It's a space station.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 12,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 13,
-    "quote": "It's a trap!",
-    "said_by": "Admiral Ackbar",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 14,
-    "quote": "I am one with the Force, the Force is with me.",
-    "said_by": "Chirrut Imwe",
-    "movie": "Rogue One: A Star Wars Story"
-  },
-  {
-    "quote_nr": 15,
-    "quote": "It's a trap!",
-    "said_by": "Admiral Ackbar",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 16,
-    "quote": "I am altering the deal. Pray I don't alter it any further.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 17,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Lando Calrissian",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 18,
-    "quote": "That's no moon. It's a space station.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 19,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 20,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Qui-Gon Jinn",
-    "movie": "Star Wars: Episode I - The Phantom Menace"
-  },
-  {
-    "quote_nr": 21,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Lando Calrissian",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 22,
-    "quote": "That's no moon. It's a space station.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 23,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 24,
-    "quote": "You don't know the power of the dark side.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 25,
-    "quote": "It's not my fault.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 26,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Anakin Skywalker",
-    "movie": "Star Wars: Episode II - Attack of the Clones"
-  },
-  {
-    "quote_nr": 27,
-    "quote": "I have a bad feeling about this.",
-    "said_by": "Cassian Andor",
-    "movie": "Rogue One: A Star Wars Story"
-  },
-  {
-    "quote_nr": 28,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Bodhi Rook",
-    "movie": "Rogue One: A Star Wars Story"
-  },
-  {
-    "quote_nr": 29,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Beckett",
-    "movie": "Solo: A Star Wars Story"
-  },
-  {
-    "quote_nr": 30,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Enfys Nest",
-    "movie": "Solo: A Star Wars Story"
-  },
-  {
-    "quote_nr": 31,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode VII - The Force Awakens"
-  },
-  {
-    "quote_nr": 32,
-    "quote": "It's not my fault.",
-    "said_by": "Lando Calrissian",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 33,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Qi'ra",
-    "movie": "Solo: A Star Wars Story"
-  },
-  {
-    "quote_nr": 34,
-    "quote": "It's not my fault.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode VII - The Force Awakens"
-  },
-  {
-    "quote_nr": 35,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Mon Mothma",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 36,
-    "quote": "You don't know the power of the dark side.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 37,
-    "quote": "That's no moon. It's a space station.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 38,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 39,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 40,
-    "quote": "It's a trap!",
-    "said_by": "Admiral Ackbar",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 41,
-    "quote": "I am one with the Force, the Force is with me.",
-    "said_by": "Chirrut Imwe",
-    "movie": "Rogue One: A Star Wars Story"
-  },
-  {
-    "quote_nr": 42,
-    "quote": "It's a trap!",
-    "said_by": "Admiral Ackbar",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 43,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Lando Calrissian",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 44,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Mon Mothma",
-    "movie": "Rogue One: A Star Wars Story"
-  },
-  {
-    "quote_nr": 45,
-    "quote": "That's no moon. It's a space station.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 46,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 47,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode VII - The Force Awakens"
-  },
-  {
-    "quote_nr": 48,
-    "quote": "It's not my fault.",
-    "said_by": "Lando Calrissian",
-    "movie": "Star Wars: Episode V - The Empire Strikes Back"
-  },
-  {
-    "quote_nr": 49,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Qi'ra",
-    "movie": "Solo: A Star Wars Story"
-  },
-  {
-    "quote_nr": 50,
-    "quote": "It's not my fault.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode VII - The Force Awakens"
-  },
-  {
-    "quote_nr": 51,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Mon Mothma",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 52,
-    "quote": "You don't know the power of the dark side.",
-    "said_by": "Darth Vader",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 53,
-    "quote": "That's no moon. It's a space station.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 54,
-    "quote": "I've got a bad feeling about this.",
-    "said_by": "Han Solo",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 55,
-    "quote": "The Force will be with you, always.",
-    "said_by": "Obi-Wan Kenobi",
-    "movie": "Star Wars: Episode IV - A New Hope"
-  },
-  {
-    "quote_nr": 56,
-    "quote": "It's a trap!",
-    "said_by": "Admiral Ackbar",
-    "movie": "Star Wars: Episode VI - Return of the Jedi"
-  },
-  {
-    "quote_nr": 57,
-    "quote": "I am one with the Force, the Force is with me.",
-    "said_by": "Chirrut Imwe",
-    "movie": "Rogue One: A Star Wars Story"
-  },
-  {
-    "quote_nr": 58,
-    "quote": "It's a trap!",
-    "said_by": "Admir"
-  }
+    {
+        "quote_nr": 1,
+        "quote": "I am your father.",
+        "said_by": "Darth Vader",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 2,
+        "quote": "Do or do not, there is no try.",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 3,
+        "quote": "The Force will be with you, always.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 4,
+        "quote": "Chewie, we're home.",
+        "said_by": "Han Solo",
+        "movie": "The Force Awakens (2015)"
+    },
+    {
+        "quote_nr": 5,
+        "quote": "So this is how liberty dies... with thunderous applause.",
+        "said_by": "Padme Amidala",
+        "movie": "Revenge of the Sith (2005)"
+    },
+    {
+        "quote_nr": 6,
+        "quote": "There is good in him, I've felt it.",
+        "said_by": "Luke Skywalker",
+        "movie": "Return of the Jedi (1983)"
+    },
+    {
+        "quote_nr": 7,
+        "quote": "Aren't you a little short for a stormtrooper?",
+        "said_by": "Leia Organa",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 8,
+        "quote": "It's treason, then.",
+        "said_by": "Darth Sidious",
+        "movie": "Revenge of the Sith (2005)"
+    },
+    {
+        "quote_nr": 9,
+        "quote": "I'm one with the Force. The Force is with me.",
+        "said_by": "Chirrut Imwe",
+        "movie": "Rogue One (2016)"
+    },
+    {
+        "quote_nr": 10,
+        "quote": "I don't like sand. It's coarse and rough and irritating, and it gets everywhere.",
+        "said_by": "Anakin Skywalker",
+        "movie": "Attack of the Clones (2002)"
+    },
+    {
+        "quote_nr": 11,
+        "quote": "That's no moon, it's a space station.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 12,
+        "quote": "The dark side of the Force is a pathway to many abilities some consider to be unnatural.",
+        "said_by": "Chancellor Palpatine",
+        "movie": "Revenge of the Sith (2005)"
+    },
+    {
+        "quote_nr": 13,
+        "quote": "I'm not afraid.",
+        "said_by": "Anakin Skywalker",
+        "movie": "The Phantom Menace (1999)"
+    },
+    {
+        "quote_nr": 14,
+        "quote": "Never tell me the odds.",
+        "said_by": "Han Solo",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 15,
+        "quote": "I'm not a hero. I'm a high-functioning sociopath.",
+        "said_by": "Han Solo",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 16,
+        "quote": "I am the Senate.",
+        "said_by": "Chancellor Palpatine",
+        "movie": "Revenge of the Sith (2005)"
+    },
+    {
+        "quote_nr": 17,
+        "quote": "I have a bad feeling about this.",
+        "said_by": "Leia Organa",
+        "movie": "The Last Jedi (2017)"
+    },
+    {
+        "quote_nr": 18,
+        "quote": "Luminous beings are we, not this crude matter.",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 19,
+        "quote": "I'm haunted by the kiss that you should never have given me.",
+        "said_by": "Padme Amidala",
+        "movie": "Attack of the Clones (2002)"
+    },
+    {
+        "quote_nr": 20,
+        "quote": "I will be the most powerful Jedi ever.",
+        "said_by": "Anakin Skywalker",
+        "movie": "The Phantom Menace (1999)"
+    },
+    {
+        "quote_nr": 21,
+        "quote": "I was once a Jedi Knight, the same as your father.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 22,
+        "quote": "I will do what I must.",
+        "said_by": "Obi-Wan Kenobi",
+        "movie": "Revenge of the Sith (2005)"
+    },
+    {
+        "quote_nr": 23,
+        "quote": "I'm just a simple man trying to make my way in the universe.",
+        "said_by": "Jango Fett",
+        "movie": "Attack of the Clones (2002)"
+    },
+    {
+        "quote_nr": 24,
+        "quote": "I find your lack of faith disturbing.",
+        "said_by": "Darth Vader",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 25,
+        "quote": "You underestimate my power!",
+        "said_by": "Anakin Skywalker",
+        "movie": "Revenge of the Sith (2005)"
+    },
+    {
+        "quote_nr": 26,
+        "quote": "You can't stop the change any more than you can stop the suns from setting.",
+        "said_by": "Shmi Skywalker",
+        "movie": "Attack of the Clones (2002)"
+    },
+    {
+        "quote_nr": 27,
+        "quote": "The Force is strong with this one.",
+        "said_by": "Darth Vader",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 28,
+        "quote": "I've been waiting for you, Obi-Wan. We meet again at last. The circle is now complete. When I left you, I was but the learner; now I am the master.",
+        "said_by": "Darth Vader",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 29,
+        "quote": "I am altering the deal. Pray I don't alter it any further.",
+        "said_by": "Darth Vader",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 30,
+        "quote": "You underestimate the power of the Dark Side. If you will not fight, then you will meet your destiny.",
+        "said_by": "Darth Vader",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 31,
+        "quote": "You don't know the power of the Dark Side. I must obey my master.",
+        "said_by": "Darth Vader",
+        "movie": "Return of the Jedi (1983)"
+    },
+    {
+        "quote_nr": 32,
+        "quote": "You must unlearn what you have learned.",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 33,
+        "quote": "Size matters not. Judge me by my size, do you?",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 34,
+        "quote": "The Force is strong with this one.",
+        "said_by": "Yoda",
+        "movie": "A New Hope (1977)"
+    },
+    {
+        "quote_nr": 35,
+        "quote": "Wars not make one great.",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 36,
+        "quote": "Adventure. Heh. Excitement. Heh. A Jedi craves not these things.",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 37,
+        "quote": "Much to learn, you still have.",
+        "said_by": "Yoda",
+        "movie": "The Empire Strikes Back (1980)"
+    },
+    {
+        "quote_nr": 38,
+        "quote": "In the end, cowards are those who follow the dark side.",
+        "said_by": "Yoda",
+        "movie": "The Clone Wars (TV-Serie)"
+    },
+    {
+        "quote_nr": 39,
+        "quote": "Train yourself to let go of everything you fear to lose.",
+        "said_by": "Yoda",
+        "movie": "Revenge of the Sith (2005)"
+    }
 ]
