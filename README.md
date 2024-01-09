@@ -1,6 +1,6 @@
 **Course:** ISD23 
 
-**Team name:** Schumpeter
+**Team name:** Young Padawans
 
 **Team members:** Matthias Pfister, Matthias Frohner, Julian Lipp, Andre Frei, Stefan Banzer
 
