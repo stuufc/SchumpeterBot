@@ -2,6 +2,7 @@ import discord
 import apimanagement
 import guessquotemgt
 import usermanagement
+import translateyourselfmgt
 import os
 import random
 from dotenv import load_dotenv
@@ -275,28 +276,61 @@ async def give_actors(ctx):
 @bot.command(name='guide')
 async def help_command(ctx):
     help_text = (
-        "**Bot Commands:**\n"
+        "**Bot Commands Mode 1:**\n"
         "`!enter` - Enter the current game. Must be used before making guesses.\n"
         "`!mode1` - Start a new game round with a Star Wars quote.\n"
         "`!actors` - Get the List of Actors with the IDs you can guess.\n"
         "`!guess` - Guess who said the Star Wars quote.\n"
         "`!hint` - Get a hint for the current quote. Can only be used once per round.\n"
         "`!restart` - Restart the game with the same players and a new quote.\n"
-        #"`!continue` - Continue to a new round with the same players.\n"
         "`!reset` - Reset the game. This clears all players and their points.\n"
         "`!players` - Show a list of all active players and their points.\n\n"
-        "**Game Rules:**\n"
+        "**Bot Commands Mode 2:**\n"
+        "`!mode2` - Play the game where you translate quotes to Yoda-style language yourself.\n"
+        "`!yoda` - Respond to a `!mode2` quote with your own Yoda-style translation.\n\n"
+        "**Game Rules Mode 1:**\n"
         "1. Players must use `!enter` to join the game.\n"
         "2. The bot presents a Star Wars quote in Yoda-style language.\n"
         "3. Players take turns to guess who originally said the quote using `!guess`.\n"
         "4. Points are awarded for correct guesses. Use of hints reduces the points.\n"
         "5. `!restart` to start a new new round; `!reset` clears the game.\n"
         "6. The game is turn-based, so wait for your turn to guess.\n\n"
+        "**Game Rules Mode 2:**\n"
+        "1. `!mode2` starts a round where the bot presents a normal Star Wars quote.\n"
+        "2. Players use `!yoda` to respond with their Yoda-style translation of the quote.\n"
+        "3. The bot will compare your translation with the API's translation and respond accordingly.\n\n"
         "**Translate sentences:**\n"
         "Use `!translate [your sentence]` to translate a sentence into Yoda-language. Careful, this only works in english."
     )
 
     await ctx.send(help_text)
+
+#game mode 2
+game_state2 = {}
+@bot.command(name='mode2')
+async def start_translation_mode(ctx):
+    #get a quote to translate
+    quote, api_translation = translateyourselfmgt.ShowQuoteToTranslate()
+    game_state2[ctx.channel.id] = {'quote': quote, 'api_translation': api_translation}
+
+    await ctx.send(f"Translate this Star Wars quote into Yoda language: \"{quote}\"\n"
+                   f"Use `!yoda [your translation]` to submit your translation.")
+
+@bot.command(name='yoda')
+async def yoda_translation(ctx, *, user_translation):
+    channel_id = ctx.channel.id
+
+    #check if a game of mode2 is active in the channel and if there is an api translation available for the game
+    if 'api_translation' in game_state2.get(channel_id, {}):
+        result = translateyourselfmgt.CheckAnswerFromUser(user_translation)
+
+        if result == "correct":
+            await ctx.send("Congratulations! Your translation was correct.")
+        else:
+            api_translation = game_state2[channel_id]['api_translation']
+            await ctx.send(f"Sorry, that was incorrect. Yoda would say it like this: \"{api_translation}\"")
+    else:
+        await ctx.send("Please start a game first with `!mode2`.")
 
 # EXECUTES THE BOT WITH THE SPECIFIED TOKEN. TOKEN HAS BEEN REMOVED AND USED JUST AS AN EXAMPLE.
 bot.run(discord_token)

@@ -1,5 +1,6 @@
 import random
 import json
+import re
 from apimanagement import *
 from guessquotemgt import GetRandomStarwarsQuote
 from usermanagement import AddPointsForUser
@@ -15,8 +16,8 @@ def ShowQuoteToTranslate():
     random_record = random.choice(data)
     translated_quote = GetYodaQuote(random_record["quote"])
     SetGlobalAnswer(translated_quote, False)
-    return ("Translate the Following Quote: " + random_record["quote"])
-    
+    return random_record["quote"], translated_quote
+
 #Function "SetGlobalAnswer" defines the answer quote which was loaded in the function ShowQuoteToTranslate or resets the answer. It is neccessary to check the answer.
 def SetGlobalAnswer(yodaanswer, is_reset):
     global yodaanswerforquote
@@ -25,18 +26,31 @@ def SetGlobalAnswer(yodaanswer, is_reset):
     else:
         yodaanswerforquote = yodaanswer
 
-#Function "CheckAnswerFromUser" compares the user answer with the answer from the API. Points are awarded if the answer is correct.       
-def CheckAnswerFromUser(username, useranswer):
-    global solution_showed
-    if solution_showed == True:
-        return "Error: The solution for this quote has already been showed. Please try another one."
-    if useranswer == yodaanswerforquote:
-        AddPointsForUser(username,1)
-        userfeedback= "Congratulations. The sentence has been translated correctly."
+#function to standardize the strings to make it easier to compare them
+def NormalizeQuote(quote):
+    #remove spaces and convert to lowercase
+    quote_no_spaces = re.sub(r"\s+", "", quote).lower()
+
+    #standardize apostrophes by replacing it with a standard one. Method from re-module is used
+    normalized_quote = re.sub(r"[’'`]", "'", quote_no_spaces)
+
+    return normalized_quote
+
+#Function "CheckAnswerFromUser" compares the user answer with the answer from the API. Points are awarded if the answer is correct.
+def CheckAnswerFromUser(user_translation):
+    global yodaanswerforquote
+    if yodaanswerforquote == '':
+        return "No quote to translate. Please start a new game with `!mode2`."
+
+    #remove spaces from quotes and standardize apostrophes
+    normalized_user_translation = NormalizeQuote(user_translation)
+    normalized_api_translation = NormalizeQuote(yodaanswerforquote)
+
+    #check if user translation matches the api translation
+    if normalized_user_translation == normalized_api_translation:
+        return "correct"
     else:
-        userfeedback = "Unfortunately, the sentence was not translated correctly. Good luck with your next attempt."    
-    SetGlobalAnswer(yodaanswerforquote, True)
-    return(userfeedback)
+        return "incorrect"
 
 #Function "ShowSolution" shows the Solution to the User if a quote is loaded.
 def ShowSolution():

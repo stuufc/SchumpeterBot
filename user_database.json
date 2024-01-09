@@ -10,17 +10,17 @@
   {
     "id": 1,
     "username": "yostuu",
-    "points": 0
+    "points": 0.5
   },
   {
     "id": 2,
     "username": "zorndyke.",
-    "points": 0
+    "points": 1
   },
   {
     "id": 3,
     "username": "jlipp16",
-    "points": 1
+    "points": 0
   },
   {
     "id": 4,
@@ -31,5 +31,15 @@
     "id": 5,
     "username": "andre_86605",
     "points": 0
+  },
+  {
+    "id": 6,
+    "username": "Not a hero i'm. asdf",
+    "points": 1
+  },
+  {
+    "id": 7,
+    "username": "asdf",
+    "points": 2
   }
 ]
